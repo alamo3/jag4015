@@ -7,13 +7,15 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class joystickControl extends Subsystem {
 
-	Joystick LeftJoystick = new Joystick(RobotMap.leftStickPort);
-	Joystick RightJoystick = new Joystick(RobotMap.rightStickPort);
+	static Joystick LeftJoystick = new Joystick(RobotMap.leftStickPort);
+	static Joystick RightJoystick = new Joystick(RobotMap.rightStickPort);
+	
+
+	
 	
 	@Override
 	protected void initDefaultCommand() {
 		// TODO Auto-generated method stub
-// lets say I make this change for testing purposes
 	}
 
 }
