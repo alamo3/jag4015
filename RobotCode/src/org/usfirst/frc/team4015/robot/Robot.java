@@ -7,12 +7,15 @@
 
 package org.usfirst.frc.team4015.robot;
 
+import org.usfirst.frc.team4015.robot.subsystems.Drivebase;
+import org.usfirst.frc.team4015.robot.subsystems.joystickControl;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.drive.MecanumDrive;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -23,8 +26,10 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends TimedRobot {
 	public static OI oi;
-
-
+	public static Drivebase drivebase;
+	public static joystickControl joyControl;
+	private MecanumDrive sportMode;
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -32,7 +37,10 @@ public class Robot extends TimedRobot {
 	@Override
 	public void robotInit() {
 		oi = new OI();
-
+		drivebase = new Drivebase();
+		joyControl = new joystickControl();
+		
+		sportMode = new MecanumDrive(drivebase.LeftFrontMotor, drivebase.LeftBackMotor, drivebase.RightFrontMotor, drivebase.RightBackMotor);
 	}
 
 	/**
@@ -77,6 +85,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		sportMode.driveCartesian(joyControl.getLeftJoyInfo().joystickX, joyControl.getLeftJoyInfo().joystickY, joyControl.getLeftJoyInfo().joystickZ, 0.0);
 	}
 
 	/**
