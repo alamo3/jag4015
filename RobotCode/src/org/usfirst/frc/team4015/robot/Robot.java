@@ -85,7 +85,7 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		sportMode.driveCartesian(joyControl.getLeftJoyInfo().joystickX, joyControl.getLeftJoyInfo().joystickY, joyControl.getLeftJoyInfo().joystickZ, 0.0);
+		sportMode.driveCartesian(joyControl.getLeftJoyX(), joyControl.getLeftJoyY(), joyControl.getLeftJoyZ(), 0.0);
 	}
 
 	/**

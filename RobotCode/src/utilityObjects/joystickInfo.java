@@ -8,6 +8,7 @@ public class joystickInfo {
 	public double joystickTwist;
 	public double joystickThrottle;
 	
+	
 	public joystickInfo(double joyX,double joyY, double joyZ, double joyTwist, double joyThrottle) {
 		this.joystickX=joyX;
 		this.joystickY=joyY;
@@ -15,6 +16,7 @@ public class joystickInfo {
 		this.joystickTwist=joyTwist;
 		this.joystickThrottle=joyThrottle;
 	}
+	
 
 
 
